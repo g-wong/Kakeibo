@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">魚へんクイズ</string>
+    <string name="hello">魚へんクイズ</string>
+    <string name="text2"></string>
+    <string name="uohen"></string>
+    <string name="Button01">解答する</string>
+    <string name="start_game">ゲーム開始</string>
+    <string name="ranking">ランキング</string>
+
+</resources>
