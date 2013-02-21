@@ -10,14 +10,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello"
-        android:textSize="8pt"
-        android:gravity="RIGHT"
+        android:textSize="12pt"
+        android:gravity="center"
          />
     <TextView
         android:id="@+id/uohen"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="12pt" />
+        android:textSize="42pt"
+        android:gravity="center" />
     <RadioGroup android:id="@+id/radiogroup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -46,7 +47,8 @@
         android:id="@+id/Button01"
         android:text="@string/Button01"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"/>
+        android:layout_width="fill_parent"
+        android:background="@drawable/button_stateful"/>
     <TextView
         android:id="@+id/TextView02"
         android:layout_width="fill_parent"

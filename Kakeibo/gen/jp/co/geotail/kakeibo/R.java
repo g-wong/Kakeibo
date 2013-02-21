@@ -59,17 +59,22 @@ containing a value of this type.
         public static final int padding_small=0x7f040000;
     }
     public static final class drawable {
-        public static final int ic_action_search=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int button=0x7f020000;
+        public static final int button_push=0x7f020001;
+        public static final int button_stateful=0x7f020002;
+        public static final int ic_action_search=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int title_sakanahen=0x7f020005;
     }
     public static final class id {
         public static final int Button01=0x7f080009;
         public static final int TextView01=0x7f080001;
         public static final int TextView02=0x7f08000a;
-        public static final int button1=0x7f080016;
+        public static final int image_title=0x7f080017;
+        public static final int imgbtn_id=0x7f080016;
         public static final int layout=0x7f080000;
         public static final int linearLayout1=0x7f08000b;
-        public static final int menu_settings=0x7f080017;
+        public static final int menu_settings=0x7f080018;
         public static final int radiobutton_1=0x7f080004;
         public static final int radiobutton_2=0x7f080005;
         public static final int radiobutton_3=0x7f080006;

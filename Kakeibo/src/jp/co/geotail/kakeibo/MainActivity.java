@@ -8,13 +8,10 @@ import java.util.Set;
 import com.google.ads.*;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -64,8 +61,6 @@ public class MainActivity extends Activity {
 	 */
 	private final static String SAKANA_LIST_FILE = "sakanaHen.csv";
 	
-	private Ranking ranking;
-	
 	//////////////////////////////////////////////////
 	// ゲームの状態
 	//////////////////////////////////////////////////
@@ -106,9 +101,6 @@ public class MainActivity extends Activity {
 		
 		//問題表示
 		nextQuestion();
-		
-		// ランキング
-		ranking = new Ranking(this);
 	}
 	
 	/**
@@ -121,7 +113,7 @@ public class MainActivity extends Activity {
 		 adView = new AdView(this, AdSize.BANNER, "a1511d072dd3a59");
 
 		 LinearLayout layout = (LinearLayout)findViewById(R.id.layout);
-		 layout.addView(adView);
+		 layout.addView(adView, 0);
 		 
 		 // 広告の表示を開始
 		 adView.loadAd(new AdRequest());
@@ -166,7 +158,8 @@ public class MainActivity extends Activity {
 		} while(mondaiList.contains(mondaiKanji));
 		mondaiList.add(mondaiKanji);
 		setMondai(mondaiKanji);
-		sakanaHenText.setText(getMondai() + " の読みは？");
+		text1.setText((mondaiCounter+1) + "問目");
+		sakanaHenText.setText(getMondai());
 
         // 正解の読みを選択肢のどこかに設定
     	Set<String> set = new HashSet<String>();
@@ -220,7 +213,7 @@ public class MainActivity extends Activity {
 		// 正解数を表示
 		if (mondaiCounter >= sakanaHen.getMondaiSize()) {
 
-			Toast.makeText(this, "おめでとう！　全" + sakanaHen.getMondaiSize() + "問正解！！" , Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "全" + sakanaHen.getMondaiSize() + "問正解！" , Toast.LENGTH_LONG).show();
 		}
 		Toast.makeText(this, "正解数 : " + seikaiCounter , Toast.LENGTH_LONG).show();
 	}
@@ -243,37 +236,6 @@ public class MainActivity extends Activity {
 	}
 	
 	/**
-	 * ランキングに入っていれば、名前を入力するダイアログを表示して
-	 * ランキング登録をおこなう
-	 */
-	private void setRanking() {
-		int rank = ranking.getRankingFor(seikaiCounter);
-		if(rank == -1) {
-			return;
-		}
-		 //テキスト入力を受け付けるビューを作成します。
-	    final EditText editView = new EditText(MainActivity.this);
-	    new AlertDialog.Builder(MainActivity.this)
-	        .setIcon(android.R.drawable.ic_dialog_info)
-	        .setTitle(rank + "位にランクインしました！　名前を入力してください")
-	        //setViewにてビューを設定します。
-	        .setView(editView)
-	        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int whichButton) {
-	                String name = editView.getText().toString();
-	                ranking.setRanking(name, seikaiCounter);
-	            }
-	        })
-	        .setNegativeButton("キャンセル", new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int whichButton) {
-	            }
-	        })
-	        .show();
-	    
-	    ranking.writeRankingFile();
-	}
-	
-	/**
 	 * STARTボタン＆解答ボタンが押された時の動作
 	 * @author Administrator
 	 *
@@ -286,7 +248,7 @@ public class MainActivity extends Activity {
 				btn1.setText("解答する");
 				nextQuestion();
 			}
-			// 問題は解いている最中
+			// 問題を解いている最中
 			else if (state == STATE_QUIZ_RUNNING) {
 				String kanji = getMondai();
 				String answer = getAnswer();

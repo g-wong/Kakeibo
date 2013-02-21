@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-  <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-      <LinearLayout 
-        android:layout_height="wrap_content" 
-        android:layout_width="wrap_content" 
-        android:orientation="vertical" 
-        android:id="@+id/linearLayout1" 
-        android:layout_alignParentBottom="true" 
-        android:layout_centerHorizontal="true" 
-        android:layout_marginBottom="165dp">
-          <Button 
-            android:id="@+id/button1" 
-            android:layout_height="wrap_content" 
-            android:layout_width="wrap_content" 
-            android:text="@+string/start_game"></Button>
-          <!-- ランキングボタンは未実装
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="165dp"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/imgbtn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_game"
+            android:background="@drawable/button_stateful" />
+        <!--
+          ランキングボタンは未実装
           <Button 
             android:id="@+id/rakingButton" 
             android:layout_height="wrap_content" 
             android:layout_width="wrap_content" 
-            android:text="@+string/ranking"></Button>
-            -->
-      </LinearLayout>
-      <TextView 
-        android:layout_width="wrap_content" 
-        android:id="@+id/textView1" 
-        android:layout_height="wrap_content" 
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:text="@+string/app_name" 
-        android:layout_above="@+id/linearLayout1" 
-        android:layout_centerHorizontal="true" 
-        android:layout_marginBottom="116dp"></TextView>
-  </RelativeLayout>
+            android:text="@+string/ranking"></Button>
+        -->
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="90dp"
+        android:src="@drawable/title_sakanahen" >
+    </ImageView>
+
+</RelativeLayout>
